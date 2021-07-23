@@ -1,14 +1,16 @@
 const express = require("express");
 const app = express();
-const path = require("path");
-const db = require("./db/db.json");
-const PORT = 3001;
 
-//routes
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
-});
+const PORT = process.env.PORT || 3001;
 
-app.get("/notes", (req, res) => res.json(db));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
+// ROUTER
+// The below points our server to a series of "route" files.
+// These routes give our server a "map" of how to respond when users visit or request data from various URLs.
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
+
+//listener to 'start' ther server
 app.listen(PORT, () => console.log(`App listening on port: ${PORT}`));
