@@ -5,12 +5,15 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "npm-watch": "^0.10.0",
+    "uuid": "^8.3.2"
   }
 }
