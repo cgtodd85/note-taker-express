@@ -7,8 +7,8 @@ router.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "../public/notes.html"))
 );
 
-//create route for everything else using '*'
-app.get("/", (req, res) => {
+//create route for everything else using '*', could also use '/' route
+router.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
