@@ -8,3 +8,11 @@ module.exports = (app) => {
     res.sendFile(path.join(__dirname, "../public/notes.html"))
   );
 };
+
+/*
+require dependencies
+
+define routes
+
+module exports
+*/
