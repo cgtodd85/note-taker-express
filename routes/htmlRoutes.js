@@ -2,11 +2,14 @@ const path = require("path");
 const express = require("express");
 const router = express.router();
 
-module.exports = (app) => {
-  app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
-  });
-  app.get("/notes", (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/notes.html"))
-  );
-};
+//using router instead of app.get
+router.get("/notes", (req, res) =>
+  res.sendFile(path.join(__dirname, "../public/notes.html"))
+);
+
+//create route for everything else using '*'
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
+module.exports = router;
