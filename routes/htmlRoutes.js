@@ -1,8 +1,8 @@
 const path = require("path");
 const express = require("express");
-const router = express.router();
+const router = express.Router();
 
-//using router instead of app.get
+//using router instead of app.get, and no need to include the /api before /notes
 router.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "../public/notes.html"))
 );
