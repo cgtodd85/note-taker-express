@@ -36,5 +36,22 @@ router.post("/notes", (req, res) => {
 });
 
 //delete
+router.delete("/notes/:id", (req, res) => {
+  const noteId = req.params.id;
+  fs.readFile(dbPath, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      const notes = JSON.parse(data);
+      const filteredNotes = notes.filter((note) => note.id !== noteId);
+      fs.writeFile(dbPath, JSON.stringify(filteredNotes), (err) =>
+        err ? console.log(err) : console.log("deleted a note!")
+      );
+      return res.json(notes);
+    }
+  });
+});
+
+///////////successfully deleted notes but for some reason I can't go add a new note after this
 
 module.exports = router;
