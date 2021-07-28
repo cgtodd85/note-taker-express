@@ -25,7 +25,7 @@ router.post("/notes", (req, res) => {
     } else {
       let notes = JSON.parse(data);
       let newId = uuidv1();
-      let newNote = { ...req.body, ID: newId };
+      let newNote = { ...req.body, id: newId };
       notes.push(newNote);
       fs.writeFile(dbPath, JSON.stringify(notes), (err) =>
         err ? console.log(err) : console.log("added new note!")
@@ -34,5 +34,7 @@ router.post("/notes", (req, res) => {
     }
   });
 });
+
+//delete
 
 module.exports = router;
