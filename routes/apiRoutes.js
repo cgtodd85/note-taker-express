@@ -58,8 +58,4 @@ router.delete("/notes/:id", (req, res) => {
   });
 });
 
-///// for post and delete.. res.end or return res json or res send
-
-///////////successfully deleted notes but for some reason I can't go add a new note after this
-
 module.exports = router;
