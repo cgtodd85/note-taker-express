@@ -6,6 +6,7 @@ const router = express.router();
 const dbPath = path.join(__dirname, "../data/db.json");
 
 //get
+router.get("/notes", (req, res) => fs.readFile(dbPath));
 
 //post
 
